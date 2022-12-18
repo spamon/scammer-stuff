@@ -1,0 +1,27 @@
+import requests
+
+
+url = "https://payment.openringer.com/x7nvl/gateway.html?sid=28c8ebfc-675b-49d2-8c6f-294c99f59448"
+
+data = {
+    "creditCard": {
+        "number": "4444444444444444",
+        "expiryMonth": "03",
+        "expiryYear": "24",
+        "cvv2": "222",
+        "terms": "",
+    },
+    "cvv2": "222",
+    "expiryMonth": "03",
+    "expiryYear": "24",
+    "number": "4444444444444444",
+    "terms": "",
+    "currency": "GBP",
+    "isCampaignXsellProductSelected": False,
+    "selectedAddOns": [],
+    "sessionId": "28c8ebfc-675b-49d2-8c6f-294c99f59448",
+}
+
+response = requests.post(url, data=data).text
+
+print(response)
