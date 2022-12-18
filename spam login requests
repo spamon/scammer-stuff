@@ -1,0 +1,46 @@
+import requests
+import random
+import os
+import string
+import json
+
+# Open the names file and read the contents
+with open("names.txt") as f:
+    names = f.read().splitlines()
+
+# Open the passwords file and read the contents
+with open("passwords.txt") as f:
+    passwords = f.read().splitlines()
+
+# ...rest of the code goes here...
+
+
+# Define a list of email domains to choose from
+email_domains = ["@gmail.com", "@outlook.com", "@yahoo.com", "@btinternet.com"]
+
+# Define a list of characters to use for generating passwords
+chars = string.ascii_lowercase + string.digits
+
+# Set the URL for the login form
+url = "https://www.stealmylogin.com/demo.html"
+
+# Try logging in with each name and a randomly generated password
+for name in names:
+    # Generate a random string of digits to append to the username
+    name_extra = "".join(random.choice(string.digits))
+
+    # Generate a random email address using the name and a randomly chosen email domain
+    username = name.lower() + name_extra + random.choice(email_domains)
+
+    # Generate a random password using the specified characters
+    password = "".join(random.choice(chars) for i in range(2, 6))
+
+    # Send the login request with the generated username and password
+    requests.post(
+        url, allow_redirects=False, data={"username": username, "password": password}
+    )
+
+    # Print the generated username and password
+    print(f"{username}:{password}")
+    
+  
