@@ -14,9 +14,6 @@ with open("names.txt") as f:
 with open("passwords.txt") as f:
     passwords = f.read().splitlines()
 
-# ...rest of the code goes here...
-
-
 # Define a list of email domains to choose from
 email_domains = ["@gmail.com", "@outlook.com", "@yahoo.com", "@btinternet.com"]
 
