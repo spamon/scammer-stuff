@@ -1,3 +1,5 @@
+#dont forget to add your own names + password text file to your dist
+
 import requests
 import random
 import os
